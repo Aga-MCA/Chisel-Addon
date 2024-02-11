@@ -1,0 +1,29 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Chisel",
+    "description": "§l§4Adrian07YT §l§eAGA§0-§2CRAFT",
+    "uuid": "a559a583-1c44-4db3-abc6-effa21382173",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 13, 0]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "15f727dd-c51a-4da6-bc09-4b9ba9c3eb94",
+      "version": [1, 0, 0]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "99070e05-656f-473c-9267-868f4fb614fd",
+      "version": [1, 0, 0],
+      "entry": "scripts/main.js"
+
+    }
+  ],
+  "dependencies": [
+    { "version": [1, 0, 0], "uuid": "44348940-dec9-4b1f-bc8f-923ed988183e" },
+    {"module_name": "@minecraft/server", "version": "1.8.0"}
+  ]
+}
