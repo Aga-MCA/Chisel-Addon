@@ -1,1 +1,12 @@
-{"resource_pack_name":"Aga","texture_name":"atlas.items","texture_data":{"chisel":{"textures":"textures/items/chisel"},"offsettool":{"textures":"textures/items/offsettool"}}}
+{
+  "resource_pack_name": "Aga",
+  "texture_name": "atlas.items",
+  "texture_data": {
+    "iron_chisel": {
+      "textures": ".aga/chisel/textures/items/iron_chisel"
+    },
+    "offsettool": {
+      "textures": ".aga/chisel/textures/items/offsettool"
+    }
+  }
+}

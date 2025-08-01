@@ -1,0 +1,28 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "CTM",
+    "description": "§l§4Adrian07YT §l§eAGA§0-§2CRAFT",
+    "uuid": "f3eb1fe1-d41c-4b6f-9d91-f6f8e1d269cd",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 13, 0]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "2f4362c5-8ed4-4607-85b0-b8e46725efe2",
+      "version": [1, 0, 0]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "7881432a-ad4e-43ec-9e75-df25a28b01c2",
+      "version": [1, 0, 0],
+      "entry": "scripts/main.js"
+
+    }
+  ],
+  "dependencies": [
+    {"module_name": "@minecraft/server", "version": "2.0.0"}
+  ]
+}

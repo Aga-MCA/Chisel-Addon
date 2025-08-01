@@ -16,14 +16,16 @@
     {
       "type": "script",
       "language": "javascript",
-      "uuid": "99070e05-656f-473c-9267-868f4fb614fd",
+      "uuid": "fa4285ba-cb26-4dcf-bed3-cf48ebe55a36",
       "version": [1, 0, 0],
       "entry": "scripts/main.js"
 
     }
   ],
   "dependencies": [
-    { "version": [1, 0, 0], "uuid": "44348940-dec9-4b1f-bc8f-923ed988183e" },
-    {"module_name": "@minecraft/server", "version": "1.8.0"}
+    {"module_name": "@minecraft/server", "version": "2.0.0"},
+    {"module_name": "@minecraft/server-ui", "version": "2.0.0"},
+    {"uuid": "f3eb1fe1-d41c-4b6f-9d91-f6f8e1d269cd", "version": "1.0.0" },
+    {"uuid": "44348940-dec9-4b1f-bc8f-923ed988183e", "version": "1.0.0" }
   ]
 }

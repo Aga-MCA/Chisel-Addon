@@ -1,0 +1,55 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:crafting_items_catalog": {
+    "categories": [
+      {
+        "category_name": "nature",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "aga_chisel:dirt_reinforced_cobble",
+              "name": "aga_chisel:itemGroup.name.dirt"
+            },
+            "items": []
+          }
+        ]
+      },
+      {
+        "category_name": "construction",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "aga_chisel:gold_largeingot",
+              "name": "aga_chisel:itemGroup.name.gold"
+            },
+            "items": []
+          }
+        ]
+      },
+      {
+        "category_name": "construction",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "aga_chisel:diamond_four_ornate",
+              "name": "aga_chisel:itemGroup.name.diamond"
+            },
+            "items": []
+          }
+        ]
+      },
+      {
+        "category_name": "construction",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "aga_chisel:iron_bolted",
+              "name": "aga_chisel:itemGroup.name.iron"
+            },
+            "items": []
+          }
+        ]
+      }
+    ]
+  }
+}

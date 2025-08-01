@@ -1,0 +1,31 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:block": {
+		"description": {
+			"identifier": "aga_chisel:redstone_lamp_square",
+			"menu_category": { "category": "items" },
+			"states": { "redstone:active": [false, true] }
+		},
+		"components": {
+			"minecraft:destructible_by_mining": { "seconds_to_destroy": 0.45 },
+			"minecraft:material_instances": { "*": { "texture": "redstone_lamp_square_off", "render_method": "opaque" } },
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:redstone_conductivity": { "redstone_conductor": true, "allows_wire_to_step_down": true },
+			"aga:redstone": {
+				"use_shared_active_power": true
+			},
+			"minecraft:tick": { "interval_range": [1, 1], "looping": true }
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('redstone:active')",
+				"components": {
+					"minecraft:material_instances": {
+						"*": { "texture": "redstone_lamp_square_on", "render_method": "opaque", "ambient_occlusion": false, "face_dimming": false }
+					},
+					"minecraft:light_emission": 15
+				}
+			}
+		]
+	}
+}
