@@ -11,7 +11,7 @@
     "components": {
       "tag:minecraft:iron_tier_destructible": {},
       "tag:minecraft:is_pickaxe_item_destructible": {},
-      "minecraft:destructible_by_mining": { "seconds_to_destroy": 15 },
+      "minecraft:destructible_by_mining": { "seconds_to_destroy": 25 },
       "minecraft:loot": "loot_tables/empty.json",
       "aga:only_tool_destructible": {}
     }

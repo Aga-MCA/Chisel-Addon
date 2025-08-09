@@ -10,7 +10,7 @@
               "icon": "aga_chisel:dirt_reinforced_cobble",
               "name": "aga_chisel:itemGroup.name.dirt"
             },
-            "items": []
+            "items": ["aga_chisel:dirt_reinforced_cobble"]
           }
         ]
       },
@@ -19,10 +19,10 @@
         "groups": [
           {
             "group_identifier": {
-              "icon": "aga_chisel:gold_largeingot",
+              "icon": "aga_chisel:gold_simple",
               "name": "aga_chisel:itemGroup.name.gold"
             },
-            "items": []
+            "items": ["aga_chisel:gold_simple"]
           }
         ]
       },
@@ -31,10 +31,10 @@
         "groups": [
           {
             "group_identifier": {
-              "icon": "aga_chisel:diamond_four_ornate",
+              "icon": "aga_chisel:diamond_simple",
               "name": "aga_chisel:itemGroup.name.diamond"
             },
-            "items": []
+            "items": ["aga_chisel:diamond_simple"]
           }
         ]
       },
@@ -43,10 +43,82 @@
         "groups": [
           {
             "group_identifier": {
-              "icon": "aga_chisel:iron_bolted",
+              "icon": "aga_chisel:iron_simple",
               "name": "aga_chisel:itemGroup.name.iron"
             },
-            "items": []
+            "items": ["aga_chisel:iron_simple"]
+          }
+        ]
+      },
+      {
+        "category_name": "construction",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "aga_chisel:coal_panel",
+              "name": "aga_chisel:itemGroup.name.coal"
+            },
+            "items": ["aga_chisel:coal_panel"]
+          }
+        ]
+      },
+      {
+        "category_name": "construction",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "aga_chisel:lapis_panel",
+              "name": "aga_chisel:itemGroup.name.lapis"
+            },
+            "items": ["aga_chisel:lapis_panel"]
+          }
+        ]
+      },
+      {
+        "category_name": "construction",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "aga_chisel:emerald_panel",
+              "name": "aga_chisel:itemGroup.name.emerald"
+            },
+            "items": ["aga_chisel:emerald_panel"]
+          }
+        ]
+      },
+      {
+        "category_name": "construction",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "aga_chisel:bricks_panel",
+              "name": "aga_chisel:itemGroup.name.bricks"
+            },
+            "items": ["aga_chisel:bricks_panel"]
+          }
+        ]
+      },
+      {
+        "category_name": "nature",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "aga_chisel:obsidian_crystal",
+              "name": "aga_chisel:itemGroup.name.obsidian"
+            },
+            "items": ["aga_chisel:obsidian_crystal"]
+          }
+        ]
+      },
+      {
+        "category_name": "items",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "aga_chisel:glowstone_panel",
+              "name": "aga_chisel:itemGroup.name.glowstone"
+            },
+            "items": ["aga_chisel:glowstone_panel"]
           }
         ]
       }

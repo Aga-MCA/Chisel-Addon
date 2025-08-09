@@ -19,7 +19,7 @@
       "minecraft:tags": {
         "tags": [ "addon:chisel" ]
       },
-      "aga_chisel:chisel": {},
+      "aga_chisel:chisel": {"with_ui":true},
       "minecraft:enchantable": {
         "slot": "flintsteel",
         "value": 15

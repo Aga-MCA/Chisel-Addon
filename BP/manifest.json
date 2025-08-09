@@ -4,8 +4,8 @@
     "name": "Chisel",
     "description": "§l§4Adrian07YT §l§eAGA§0-§2CRAFT",
     "uuid": "a559a583-1c44-4db3-abc6-effa21382173",
-    "version": [1, 0, 0],
-    "min_engine_version": [1, 13, 0]
+    "version": [0, 2, 0],
+    "min_engine_version": [1, 21, 40]
   },
   "modules": [
     {
@@ -23,9 +23,9 @@
     }
   ],
   "dependencies": [
-    {"module_name": "@minecraft/server", "version": "2.0.0"},
+    {"module_name": "@minecraft/server", "version": "2.1.0"},
     {"module_name": "@minecraft/server-ui", "version": "2.0.0"},
     {"uuid": "f3eb1fe1-d41c-4b6f-9d91-f6f8e1d269cd", "version": "1.0.0" },
-    {"uuid": "44348940-dec9-4b1f-bc8f-923ed988183e", "version": "1.0.0" }
+    {"uuid": "44348940-dec9-4b1f-bc8f-923ed988183e", "version": "0.2.0" }
   ]
 }
