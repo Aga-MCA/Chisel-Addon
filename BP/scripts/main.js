@@ -1,1 +1,116 @@
-var D=Object.defineProperty;var F=Object.getOwnPropertyDescriptor;var N=Object.getOwnPropertyNames;var O=Object.prototype.hasOwnProperty;var C=(a,e,t,i)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of N(e))!O.call(a,o)&&o!==t&&D(a,o,{get:()=>e[o],enumerable:!(i=F(e,o))||i.enumerable});return a},x=(a,e,t)=>(C(a,e,"default"),t&&C(t,e,"default"));var s={};x(s,W);import*as W from"@minecraft/server";var E={[s.Direction.Up]:"above",[s.Direction.East]:"east",[s.Direction.West]:"west",[s.Direction.Down]:"below",[s.Direction.South]:"south",[s.Direction.North]:"north"};function y(a,e){try{return a.setPermutation(e),!0}catch{return!1}}function w(a,e,t){try{return a.withState(e,t)}catch{return a}}var u=class{onTick(e,t){if(!e.block.isValid)return;let i=t.params,o=e.block.permutation.getAllStates(),c=e.block.getRedstonePower()??0;if(i.use_shared_active_power&&!e.block.getRedstonePower())for(let l of Object.values(E)){if("redstone:active"in o&&!("redstone:signal"in o)&&c)break;let n=e.block[l](1);if(!n)continue;let _=n.getRedstonePower();if(!_)continue;let g=_-1;g>c&&(c=g)}"redstone:signal"in o?y(e.block,w(e.block.permutation,"redstone:signal",c)):"redstone:active"in o&&y(e.block,w(e.block.permutation,"redstone:active",c>0))}};import{ModalFormData as z}from"@minecraft/server-ui";var m=class{constructor(e,t){this.id=e;this.states=t}},r=class{constructor(e,t){this.blocks=e;this.name=t}static BlockListItemToData(e){return e instanceof m?[e.id,e.states]:[e,void 0]}includes(e){return this.blocks.some(t=>typeof e=="string"?e===t:e instanceof m?t instanceof m?t.id===e.id&&Object.entries(t.states).every(i=>e.states[i[0]]===i[1]):t===e.id:t instanceof m?t.id===e.typeId&&Object.entries(t.states).every(i=>e.permutation.getAllStates()[i[0]]===i[1]):t===e.typeId)}getNext(e){let t=this.blocks.findIndex(i=>i instanceof m?i.id===e.typeId&&Object.entries(i.states).every(o=>e.permutation.getAllStates()[o[0]]===o[1]):i===e.typeId);return t===-1?null:(t===this.blocks.length-1&&(t=-1),t++,r.BlockListItemToData(this.blocks[t]))}getItem(e){let t=this.blocks.findIndex(i=>typeof e=="string"?e===i:e instanceof m?i instanceof m?i.id===e.id&&Object.entries(i.states).every(o=>e.states[o[0]]===o[1]):i===e.id:i instanceof m?i.id===e.typeId&&Object.entries(i.states).every(o=>e.permutation.getAllStates()[o[0]]===o[1]):i===e.typeId);return t===-1?null:this.blocks[t]}*[Symbol.iterator](){for(let e of this.blocks){let t=typeof e=="string"?e:e.id;s.BlockTypes.get(t)&&(yield t)}}},f=class{constructor(e){this.lists=e}includes(e){return this.lists.some(t=>t.includes(e))}getNext(e){for(let t of this.lists){let i=t.getNext(e);if(i)return i}return null}getList(e){return this.lists.find(t=>t.includes(e))}getItemInList(e,t){let i=this.getList(e);return i?i.includes(t):!1}*[Symbol.iterator](){for(let e of this.lists)e.name&&(yield e)}};function p(a){let e=a.getComponent(s.ItemComponentTypes.Durability),t=a.getComponent(s.ItemComponentTypes.Enchantable)?.getEnchantment("unbreaking")?.level||0;if(e){if(e.damage>=e.maxDurability)return;e.damage+=+(1/(t+1)>=Math.random())}return a}var h=new f([new r(["minecraft:redstone_lamp",new m("aga_chisel:redstone_lamp_square",{"redstone:active":!1})],"tile.redstone_lamp.name"),new r(["minecraft:lit_redstone_lamp",new m("aga_chisel:redstone_lamp_square",{"redstone:active":!0})],"tile.lit_redstone_lamp.name"),new r(["minecraft:stone_bricks","minecraft:cracked_stone_bricks","minecraft:chiseled_stone_bricks","aga_chisel:stone_braid","aga_chisel:stone_chaotic_medium","aga_chisel:stone_chaotic_small","aga_chisel:stone_circular","aga_chisel:stone_cracked_bricks","aga_chisel:stone_cracked","aga_chisel:stone_cuts","aga_chisel:stone_dent","aga_chisel:stone_encased_bricks","aga_chisel:stone_french_1","aga_chisel:stone_french_2","aga_chisel:stone_largeornate","aga_chisel:stone_layer","aga_chisel:stone_mosaic","aga_chisel:stone_ornate","aga_chisel:stone_panel","aga_chisel:stone_pillar","aga_chisel:stone_poison","aga_chisel:stone_prism","aga_chisel:stone_raw","aga_chisel:stone_road","aga_chisel:stone_small_brick","aga_chisel:stone_soft_bricks","aga_chisel:stone_solid_bricks","aga_chisel:stone_sunken","aga_chisel:stone_tiles_large","aga_chisel:stone_tiles_medium","aga_chisel:stone_tiles_small","aga_chisel:stone_triple_bricks","aga_chisel:stone_twisted","aga_chisel:stone_weaver"],"itemGroup.name.stoneBrick"),new r(["minecraft:brick_block","aga_chisel:bricks_braid","aga_chisel:bricks_chaotic_medium","aga_chisel:bricks_chaotic_small","aga_chisel:bricks_circular","aga_chisel:bricks_cracked_bricks","aga_chisel:bricks_cracked","aga_chisel:bricks_cuts","aga_chisel:bricks_dent","aga_chisel:bricks_encased_bricks","aga_chisel:bricks_french_1","aga_chisel:bricks_french_2","aga_chisel:bricks_layers","aga_chisel:bricks_mosaic","aga_chisel:bricks_ornate","aga_chisel:bricks_panel","aga_chisel:bricks_pillar","aga_chisel:bricks_prism","aga_chisel:bricks_raw","aga_chisel:bricks_road","aga_chisel:bricks_small_brick","aga_chisel:bricks_soft_bricks","aga_chisel:bricks_solid_bricks","aga_chisel:bricks_tiles_large","aga_chisel:bricks_tiles_medium","aga_chisel:bricks_tiles_small","aga_chisel:bricks_triple_bricks","aga_chisel:bricks_weaver"],"tile.brick_block.name"),new r(["minecraft:coal_block","aga_chisel:coal_braid","aga_chisel:coal_chaotic_medium","aga_chisel:coal_chaotic_medium","aga_chisel:coal_chaotic","aga_chisel:coal_circular","aga_chisel:coal_cracked_bricks","aga_chisel:coal_cracked","aga_chisel:coal_cuts","aga_chisel:coal_dent","aga_chisel:coal_encased_bricks","aga_chisel:coal_french_1","aga_chisel:coal_french_2","aga_chisel:coal_french_alt","aga_chisel:coal_french","aga_chisel:coal_large_bricks","aga_chisel:coal_layers","aga_chisel:coal_masonry","aga_chisel:coal_mosaic","aga_chisel:coal_ornate","aga_chisel:coal_panel","aga_chisel:coal_pillar","aga_chisel:coal_prism","aga_chisel:coal_raw","aga_chisel:coal_road","aga_chisel:coal_small_bricks","aga_chisel:coal_soft_bricks","aga_chisel:coal_tiles_large","aga_chisel:coal_tiles_med","aga_chisel:coal_tiles_medium","aga_chisel:coal_tiles_small","aga_chisel:coal_triple_bricks","aga_chisel:coal_twisted","aga_chisel:coal_weaver"],"tile.coal_block.name"),new r(["minecraft:copper_block","aga_chisel:copper_badgreggy","aga_chisel:copper_bolted","aga_chisel:copper_caution","aga_chisel:copper_crate","aga_chisel:copper_machine","aga_chisel:copper_scaffold","aga_chisel:copper_thermal"],"tile.copper_block.name"),new r(["minecraft:diamond_block","aga_chisel:diamond_bismuth","aga_chisel:diamond_cells","aga_chisel:diamond_crushed","aga_chisel:diamond_embossed","aga_chisel:diamond_four_ornate","aga_chisel:diamond_four","aga_chisel:diamond_gem","aga_chisel:diamond_ornate_layer","aga_chisel:diamond_simple","aga_chisel:diamond_space_black","aga_chisel:diamond_space","aga_chisel:diamond_zelda"],"tile.diamond_block.name"),new r(["minecraft:dirt","aga_chisel:dirt_big_bricks","aga_chisel:dirt_bricks","aga_chisel:dirt_chunky","aga_chisel:dirt_classicbricks","aga_chisel:dirt_cobble","aga_chisel:dirt_happy","aga_chisel:dirt_horizontal","aga_chisel:dirt_layers","aga_chisel:dirt_netherbricks","aga_chisel:dirt_plate","aga_chisel:dirt_reinforced_cobble","aga_chisel:dirt_reinforced","aga_chisel:dirt_vert","aga_chisel:dirt_vertical"],"tile.dirt.name"),new r(["minecraft:emerald_block","aga_chisel:emerald_cell","aga_chisel:emerald_cellbismuth","aga_chisel:emerald_chunk","aga_chisel:emerald_circle","aga_chisel:emerald_four","aga_chisel:emerald_fourornate","aga_chisel:emerald_goldborder","aga_chisel:emerald_ornate","aga_chisel:emerald_panel","aga_chisel:emerald_panelclassic","aga_chisel:emerald_prismatic","aga_chisel:emerald_smooth","aga_chisel:emerald_zelda"],"tile.emerald_block.name"),new r(["minecraft:glowstone","aga_chisel:glowstone_bismuth","aga_chisel:glowstone_braid","aga_chisel:glowstone_chaotic_medium","aga_chisel:glowstone_chaotic_small","aga_chisel:glowstone_circular","aga_chisel:glowstone_cracked_bricks","aga_chisel:glowstone_cracked","aga_chisel:glowstone_dent","aga_chisel:glowstone_encased_bricks","aga_chisel:glowstone_french_1","aga_chisel:glowstone_french_2","aga_chisel:glowstone_layers","aga_chisel:glowstone_mosaic","aga_chisel:glowstone_neon_panel","aga_chisel:glowstone_neon","aga_chisel:glowstone_ornate","aga_chisel:glowstone_panel","aga_chisel:glowstone_pillar","aga_chisel:glowstone_prism","aga_chisel:glowstone_road","aga_chisel:glowstone_small_brick","aga_chisel:glowstone_soft_bricks","aga_chisel:glowstone_solid_bricks","aga_chisel:glowstone_tiles_large_bismuth","aga_chisel:glowstone_tiles_large","aga_chisel:glowstone_tiles_medium_bismuth","aga_chisel:glowstone_tiles_medium","aga_chisel:glowstone_tiles_small","aga_chisel:glowstone_triple_bricks","aga_chisel:glowstone_twisted"],"tile.glowstone.name"),new r(["minecraft:gold_block","aga_chisel:gold_badgreggy","aga_chisel:gold_bolted","aga_chisel:gold_bricks","aga_chisel:gold_cart","aga_chisel:gold_caution","aga_chisel:gold_coin_heads","aga_chisel:gold_coin_tails","aga_chisel:gold_crate_dark","aga_chisel:gold_crate_light","aga_chisel:gold_crate","aga_chisel:gold_eye","aga_chisel:gold_largeingot","aga_chisel:gold_machine","aga_chisel:gold_plates","aga_chisel:gold_rivet","aga_chisel:gold_scaffold","aga_chisel:gold_simple","aga_chisel:gold_smallingot","aga_chisel:gold_space","aga_chisel:gold_spaceblack","aga_chisel:gold_star","aga_chisel:gold_thermal"],"tile.gold_block.name"),new r(["minecraft:iron_block","aga_chisel:iron_badgreggy","aga_chisel:iron_bolted","aga_chisel:iron_brick","aga_chisel:iron_caution","aga_chisel:iron_coin_heads","aga_chisel:iron_coin_tails","aga_chisel:iron_crate_dark","aga_chisel:iron_crate_light","aga_chisel:iron_crate","aga_chisel:iron_gears","aga_chisel:iron_largeingot","aga_chisel:iron_machine","aga_chisel:iron_moon","aga_chisel:iron_plates","aga_chisel:iron_rivets","aga_chisel:iron_scaffold","aga_chisel:iron_simple","aga_chisel:iron_smallingot","aga_chisel:iron_space","aga_chisel:iron_spaceblack","aga_chisel:iron_thermal","aga_chisel:iron_vents"],"tile.iron_block.name"),new r(["minecraft:lapis_block","aga_chisel:lapis_chunky","aga_chisel:lapis_ornate","aga_chisel:lapis_ornatelayer","aga_chisel:lapis_panel","aga_chisel:lapis_smooth","aga_chisel:lapis_tile","aga_chisel:lapis_zelda"],"tile.lapis_block.name"),new r(["minecraft:obsidian","aga_chisel:obsidian_blocks","aga_chisel:obsidian_chiseled","aga_chisel:obsidian_chunks","aga_chisel:obsidian_crate","aga_chisel:obsidian_crystal","aga_chisel:obsidian_greek","aga_chisel:obsidian_growth","aga_chisel:obsidian_map_a","aga_chisel:obsidian_map_b","aga_chisel:obsidian_panel_light","aga_chisel:obsidian_panel_shiny","aga_chisel:obsidian_panel","aga_chisel:obsidian_pillar_quartz","aga_chisel:obsidian_pillar","aga_chisel:obsidian_tiles"],"tile.obsidian.name")]);function q(a,e){if(!e)return!0;let t=a.permutation.getAllStates();return Object.entries(e).every(i=>t[i[0]]===i[1])}function S(a,e,t){if(!h.includes(a))return!1;let i,o=e.getDynamicProperty("aga_chisel:data");if(o){let n=JSON.parse(o).find(_=>_&&h.getItemInList(a,_));n&&(i=r.BlockListItemToData(h.getList(a).getItem(n)))}if(i||(i=h.getNext(a)),!i)return;let c=i[0],l=i[1];c==a.typeId&&q(a,l)||s.system.run(()=>{if(a.setPermutation(s.BlockPermutation.resolve(c,l)),a.dimension.playSound("block.stonecutter.use",a.location,{pitch:1.4,volume:.6}),t.getGameMode()===s.GameMode.Creative)return;let n=t.getComponent("equippable"),_=p(e);n?.setEquipment(s.EquipmentSlot.Mainhand,_),_||t.playSound("random.break",{volume:1,pitch:1})})}function V(a){let e=a.block.permutation.getState("minecraft:block_face"),t;(e==="east"||e==="west")&&(a.blockFace===s.Direction.North&&(t=1),a.blockFace===s.Direction.South&&(t=2),a.blockFace===s.Direction.Up&&(t=3),a.blockFace===s.Direction.Down&&(t=4)),(e==="up"||e==="down")&&(a.blockFace===s.Direction.North&&(t=1),a.blockFace===s.Direction.South&&(t=2),a.blockFace===s.Direction.East&&(t=3),a.blockFace===s.Direction.West&&(t=4)),(e==="north"||e==="south")&&(a.blockFace===s.Direction.Up&&(t=1),a.blockFace===s.Direction.Down&&(t=2),a.blockFace===s.Direction.East&&(t=3),a.blockFace===s.Direction.West&&(t=4)),s.system.run(()=>{if(t){let i=`face:${t}`,o=a.block.permutation.getState(i)+1;a.block.setPermutation(a.block.permutation.withState(i,o>6?1:o))}})}function B(a){let{block:e,player:t,itemStack:i}=a;e.typeId==="aga_chisel:gold_eye"&&V(a),s.system.run(()=>{if(t.getGameMode()===s.GameMode.Creative)return;let o=t.getComponent("equippable"),c=p(i);o?.setEquipment(s.EquipmentSlot.Mainhand,c),c||t.playSound("random.break",{volume:1,pitch:1})})}function U(a){let{block:e,player:t}=a,i=a.itemStack,o=t.getBlockFromViewDirection();if(!o)return{block:e,player:t,itemStack:i};let c=o.block.x===e.x,l=o.block.y===e.y,n=o.block.z===e.z;if(!(c&&l&&n))return{block:e,player:t,itemStack:i};let{faceLocation:g,face:T}=o;return{block:e,blockFace:T,faceLocation:g,player:t,itemStack:i}}function L(a){let{block:e,itemStack:t,player:i}=a;if(!t)return!1;let o=t?.getTags().includes("addon:offset"),c=t?.getTags().includes("addon:chisel");return i.timeout||(i.timeout=!0,s.system.runTimeout(()=>{i.timeout=!1},5),o&&a.faceLocation&&a.blockFace&&B(a),c&&S(e,t,i)),c||o}s.world.beforeEvents.playerBreakBlock.subscribe(a=>{a.cancel=L(U(a))});s.world.beforeEvents.playerInteractWithBlock.subscribe(a=>{a.player.isSneaking&&!a.isFirstEvent||(a.cancel=L(a))});var I="\xA75+Chisel Data\xA7r";function P(a){let e=new z().title({translate:"chisel.ui"}).toggle({translate:"chisel.ui.active-data"},{defaultValue:!0}),t="gui.none";for(let i of h)e.dropdown({translate:i.name},[t,...i].map(o=>({translate:o==t?o:`tile.${o.replace("minecraft:","")}.name`})));e.show(a.source).then(i=>{if(i.canceled||!i.formValues||!a.itemStack)return;let o=i.formValues[0],c=[...h];if(o){let l=[];for(let n=0;n<c.length;n++){let _=[...c[n]][i.formValues[n+1]-1];l.push(_),a.itemStack.setDynamicProperty("aga_chisel:data",JSON.stringify(l)),a.itemStack.setLore([...a.itemStack.getLore().filter(g=>g!=I),I])}}else a.itemStack.setDynamicProperty("aga_chisel:data"),a.itemStack.setLore(a.itemStack.getLore().filter(l=>l!=I));a.source.getComponent("equippable")?.setEquipment(s.EquipmentSlot.Mainhand,a.itemStack)})}var k=class{onUse(e,t){let i=t.params;e.source.isSneaking&&i.with_ui&&P(e)}onUseOn(e,t){let i=t.params;e.source.isSneaking&&i.with_ui&&e.source instanceof s.Player&&P(e)}};var d=class{constructor(){this.data=[]}add(e){this.data.includes(e)||this.data.push(e)}intersection(e){let t=new d;for(let i of this.data)e.includes(i)&&t.add(i);return t}includes(e){return this.data.includes(e)}get size(){return this.data.length}};function $(a){let e=new d,t=0;for(let i of a.getTags()){let o=0;i==="minecraft:iron_tier_destructible"&&(o=3),i==="minecraft:stone_tier_destructible"&&(o=2),i==="minecraft:diamond_tier_destructible"&&(o=4),i==="minecraft:netherite_tier_destructible"&&(o=5),i==="minecraft:is_sword_item_destructible"&&e.add(4),i==="minecraft:is_mace_item_destructible"&&e.add(7),i==="minecraft:is_hoe_item_destructible"&&e.add(5),i==="minecraft:is_axe_item_destructible"&&e.add(2),i==="minecraft:is_pickaxe_item_destructible"&&(e.add(1),o=1),i==="minecraft:is_shovel_item_destructible"&&e.add(3),i==="minecraft:is_shears_item_destructible"&&e.add(6),o>t&&(t=o)}return{tools:e,tier:t}}function G(a){let e=new d,t=0,i=!1;if(a){for(let c of a.getTags()){let l=0;c==="minecraft:golden_tier"&&(l=1),c==="minecraft:wooden_tier"&&(l=1),c==="minecraft:stone_tier"&&(l=2),c==="minecraft:copper_tier"&&(l=2),c==="minecraft:iron_tier"&&(l=3),c==="minecraft:diamond_tier"&&(l=4),c==="minecraft:netherite_tier"&&(l=5),c==="minecraft:is_pickaxe"&&e.add(1),c==="minecraft:is_shovel"&&e.add(3),c==="minecraft:is_shears"&&e.add(6),c==="minecraft:is_sword"&&e.add(4),c==="minecraft:is_mace"&&e.add(7),c==="minecraft:is_hoe"&&e.add(5),c==="minecraft:is_axe"&&e.add(2),l>t&&(t=l)}let o=a.getComponent("enchantable");o?.isValid&&(i=o.hasEnchantment("silk_touch"))}return{tools:e,tier:t,use_silk_touch:i}}s.world.beforeEvents.playerBreakBlock.subscribe(a=>{if(a.player.getGameMode()===s.GameMode.Creative)return;let e=a.block.getComponent("aga:only_tool_destructible");if(!e?.isValid)return;let{tools:t,tier:i}=$(a.block);if(t.size===0)return;let{tools:o,tier:c,use_silk_touch:l}=G(a.itemStack),n=t.intersection(o).size>=1&&i<=c,{params:_}=e.customComponentParameters;if(l&&(n||_?.silk_touch?.ignore_tool)){_?.silk_touch?.loot&&(s.system.run(()=>{a.dimension.runCommand(`loot spawn ${a.block.x} ${a.block.y} ${a.block.z} loot ${_?.silk_touch?.loot} ${a.itemStack??""}`),a.block.setType("minecraft:air")}),a.cancel=!0);return}if(!n){s.system.run(()=>a.block.setType("minecraft:air")),a.cancel=!0;return}_?.loot&&s.system.run(()=>{a.dimension.runCommand(`loot spawn ${a.block.x} ${a.block.y} ${a.block.z} loot ${_?.silk_touch?.loot} ${a.itemStack??""}`)});let g=a.block.getItemStack(1);s.system.run(()=>a.dimension.spawnItem(g,a.block.location))});var b=class{};s.system.beforeEvents.startup.subscribe(({blockComponentRegistry:a,itemComponentRegistry:e})=>{a.registerCustomComponent("aga:redstone",new u),a.registerCustomComponent("aga:only_tool_destructible",new b),e.registerCustomComponent("aga_chisel:chisel",new k)});
+//@ts-check
+import { system, EquipmentSlot, world } from '@minecraft/server';
+import { ModalFormData } from "@minecraft/server-ui";
+
+import chisel, { CHISEL_BLOCKS } from "./chisel.js";
+import offset from "./offsettool.js";
+
+/**@param {import('@minecraft/server').PlayerBreakBlockBeforeEvent}event@returns {import('./offsettool.js').PartialEvent}*/
+function PlayerBreakBlockBeforeEvent_to_PartialEvent(
+  event,
+) {
+  const { block, player } = event;
+  const itemStack = event.itemStack;
+  const extraData = player.getBlockFromViewDirection();
+  if (!extraData) return { block, player, itemStack };
+  const is_block_x = extraData.block.x === block.x;
+  const is_block_y = extraData.block.y === block.y;
+  const is_block_z = extraData.block.z === block.z;
+  const is_block = is_block_x && is_block_y && is_block_z;
+  if (!is_block) return { block, player, itemStack };
+  const { faceLocation, face: blockFace } = extraData;
+  return { block, blockFace, faceLocation, player, itemStack };
+}
+
+/**@param {import('./offsettool.js').PartialEvent}event*/
+function isChanged(event) {
+  const { block, itemStack, player } = event;
+  if (!itemStack) return false;
+  const is_offsetItem = itemStack?.getTags().includes("addon:offset");
+  const is_chiselItem = itemStack?.getTags().includes("addon:chisel");
+
+  if (player.timeout) return is_chiselItem || is_offsetItem;
+  player.timeout = true;
+  system.runTimeout(() => {
+    player.timeout = false;
+  }, 5);
+
+  if (is_offsetItem && event.faceLocation && event.blockFace) offset(event);
+  if (is_chiselItem) chisel(block, itemStack, player);
+  return is_chiselItem || is_offsetItem;
+}
+
+world.beforeEvents.playerBreakBlock.subscribe((event) => {
+  event.cancel = isChanged(PlayerBreakBlockBeforeEvent_to_PartialEvent(event));
+});
+
+world.beforeEvents.playerInteractWithBlock.subscribe((event) => {
+  if (event.player.isSneaking && !event.isFirstEvent) return;
+  event.cancel = isChanged(event);
+});
+const CHISEL_LORE = "§5+Chisel Data§r";
+/**@param {import('@minecraft/server').ItemComponentUseEvent}event*/
+function openUi(event) {
+  const CHISEL_SELECTION = new ModalFormData().title({
+    translate: "chisel.ui",
+  }).toggle({ translate: "chisel.ui.active-data" }, { defaultValue: true });
+
+  const NEVER = "gui.none";
+
+  for (const list of CHISEL_BLOCKS) {
+    CHISEL_SELECTION.dropdown(
+      {
+        translate: list.name
+      },
+      [NEVER, ...list].map((s) => ({
+        translate: s == NEVER ? s : `tile.${s.replace("minecraft:", "")}.name`,
+      })),
+    );
+  }
+  CHISEL_SELECTION.show(event.source).then((formData) => {
+    if (formData.canceled || !formData.formValues || !event.itemStack) return;
+    const active = formData.formValues[0];
+
+    const lists = [...CHISEL_BLOCKS];
+    if (active) {
+      const data = [];
+      for (let i = 0; i < lists.length; i++) {
+        const item = [...lists[i]][/**@type {number}*/(formData.formValues[i + 1]) - 1];
+        data.push(item);
+        event.itemStack.setDynamicProperty(
+          "aga_chisel:data",
+          JSON.stringify(data),
+        );
+        event.itemStack.setLore([
+          ...event.itemStack.getLore().filter((l) => l != CHISEL_LORE),
+          CHISEL_LORE,
+        ]);
+      }
+    } else {
+      event.itemStack.setDynamicProperty("aga_chisel:data");
+      event.itemStack.setLore(
+        event.itemStack.getLore().filter((l) => l != CHISEL_LORE),
+      );
+    }
+    event.source.getComponent("equippable")?.setEquipment(
+      EquipmentSlot.Mainhand,
+      event.itemStack,
+    );
+  });
+}
+/**@typedef {import('@minecraft/server').ItemCustomComponent}ItemCustomComponent*/
+/**@implements {ItemCustomComponent}*/
+export class ItemChiselComponent {
+	/**@param {import("@minecraft/server").ItemComponentUseEvent}event@param {import("@minecraft/server").CustomComponentParameters} component*/
+  onUse(
+    event,
+    component,
+  ) {
+    const params = /**@type {{with_ui:boolean}}*/ (component.params);
+    if (!(event.source.isSneaking && params.with_ui)) return;
+    openUi(event);
+  }
+}
+
+
+system.beforeEvents.startup.subscribe(({ itemComponentRegistry }) => itemComponentRegistry.registerCustomComponent("aga_chisel:chisel", new ItemChiselComponent()));

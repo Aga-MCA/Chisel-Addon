@@ -121,6 +121,18 @@
             "items": ["aga_chisel:glowstone_panel"]
           }
         ]
+      },
+      {
+        "category_name": "items",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "aga_chisel:redstone_panel",
+              "name": "aga_chisel:itemGroup.name.redstone"
+            },
+            "items": ["aga_chisel:redstone_panel"]
+          }
+        ]
       }
     ]
   }
